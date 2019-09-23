@@ -1,0 +1,8 @@
+<h1>Comment : <%= @comment.id %></h1>
+
+<form action="/<%= @comment.id %>" method="post">
+    <%= csrf_tag %>
+    <input type="hidden" name="_method" value="put">
+    <input type="text" name="body" value="<%= @comment.body %>">
+    <input type="submit" value="Edit Comment">
+</form>

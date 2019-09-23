@@ -2,7 +2,9 @@
 <ul>
     <% @comments.each do |comment| %>
     <li data-id="<%= comment.id %>" data-token="<%= csrf_token %>">
-        <%= h(comment.body) %>
+        <a href="/<%= comment.id %>">
+            <%= h(comment.body) %>
+        </a>
         <span class="delete">[x]</span>
     </li>
     <% end %>

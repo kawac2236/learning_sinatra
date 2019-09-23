@@ -44,3 +44,17 @@ end
 post '/destroy' do
 	Comment.find(params[:id]).destroy
 end
+
+## コメント表示
+get '/:id' do
+	@comment = Comment.find(params[:id])
+	erb :comment_page
+end
+
+## コメント編集
+put '/:id' do
+	@comment = 	Comment.find(params[:id])
+	@comment.update(body: params[:body])
+	@comment.save
+	redirect to('/')
+end
