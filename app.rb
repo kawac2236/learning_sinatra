@@ -8,11 +8,18 @@ ActiveRecord::Base.establish_connection(
 )
 
 class Comment < ActiveRecord::Base
+	validates :body, presence:true
 end
 
-## htmlを表示
+## DBのコメントを表示
 get '/' do
 	@title = "My BBS"
 	@comments = Comment.all
 	erb :index
+end
+
+## コメントを追加
+post '/create' do
+	Comment.create(body: params[:body])	
+	redirect to('/')
 end

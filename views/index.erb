@@ -1,10 +1,10 @@
 <h1>My BBS</h1>
 <ul>
     <% @comments.each do |comment| %>
-    <li><%= comment.body %></li>
+    <li><%= Rack::Utils.escape_html(comment.body) %></li>
     <% end %>
 </ul>
-<form action="" method="post">
+<form action="/create" method="post">
     <input type="text" name="body">
     <input type="submit" value="Add Comment">
 </form>
