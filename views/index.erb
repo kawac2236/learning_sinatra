@@ -1,7 +1,10 @@
 <h1>My BBS</h1>
 <ul>
     <% @comments.each do |comment| %>
-    <li><%= Rack::Utils.escape_html(comment.body) %></li>
+    <li data-id="<%= comment.id %>">
+        <%= Rack::Utils.escape_html(comment.body) %>
+        <span class="delete">[x]</span>
+    </li>
     <% end %>
 </ul>
 <form action="/create" method="post">

@@ -23,3 +23,8 @@ post '/create' do
 	Comment.create(body: params[:body])	
 	redirect to('/')
 end
+
+## コメント削除
+post '/destroy' do
+	Comment.find(params[:id]).destroy
+end

@@ -21,3 +21,9 @@ ul > li {
 input[type="text"]{
     padding:3px;
 }
+
+.delete {
+    font-size: 12px;
+    cursor: pointer;
+    color:blue;
+}
