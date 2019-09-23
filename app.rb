@@ -1,6 +1,10 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'active_record'
+require 'rack/csrf'
+
+use Rack::Session::Cookie, secret:"Thisissomthingsecret"
+use Rack::Csrf, raise:true
 
 ActiveRecord::Base.establish_connection(
 	adapter: 'sqlite3',
